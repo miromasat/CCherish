@@ -4,8 +4,7 @@
 #include <algorithm>
 #include "./misc/trim.cpp"
 #include "./src/CTerm.cpp"
-#include "./src/CTerm2.cpp"
-
+#include "./src/CTermTree.cpp"
 
 using namespace std;
 
