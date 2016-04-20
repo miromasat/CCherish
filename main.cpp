@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "./misc/trim.cpp"
 #include "./src/CTerm.cpp"
+#include "./src/CTerm2.cpp"
 
 
 using namespace std;
@@ -28,8 +29,9 @@ int main(int argc, char const *argv[]) {
   termRecord *entry = new termRecord;
   ifstream myfile (argv[1]);
 
-  CTerm *DTree = new CTerm();
-
+  //CTerm *DTree = new CTerm("mariana gedrova");
+  AVLtree<string> DTree;
+  //DTree->remove(DTree, "root");
   while ( getline(myfile,k,',') )
     {     getline (myfile,p);
           trim(k); trim(p);
@@ -38,10 +40,35 @@ int main(int argc, char const *argv[]) {
       entry->termKey      = k;
       entry->termPriority = ::atof(p.c_str());
 
-      DTree->insert(DTree, entry->termKey);
+      DTree.insert(k);
+      cout << endl;
 
       cout << entry->termKey << " with a priority of " << entry->termPriority << endl;
+      DTree.printInOrder();
+      //CTerm *left = DTree->findMin(DTree);
+      //cout << "Minimal node: " << left->key << endl;
     }
+
+
+    //in_order_traversal(DTree);
+    cout << endl;
+
+
+    int min = 0;
+    while (min < 20)
+    {
+      string delKey = DTree.findMin();
+      cout << min << ": " << delKey << endl;
+      DTree.printInOrder();
+      cout << endl;
+      DTree.deleteKey(delKey);
+
+      //DTree->remove(DTree, left->key);
+      min++;
+    }
+
+
+
 
 
   myfile.close();

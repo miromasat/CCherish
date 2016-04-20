@@ -4,14 +4,8 @@
 CTerm::CTerm(string k)
   {
     key = k;
-    data = data;
-    left = right = nullptr;
+    left = right = NULL;
     height = 1;
-  }
-
-CTerm::CTerm()
-  {
-    left = right = nullptr;
   }
 
 unsigned char CTerm::getHeight(CTerm* p)
@@ -54,13 +48,13 @@ CTerm*        CTerm::rotateLeft(CTerm* q)
 CTerm*        CTerm::balance(CTerm* p) // balancing the p node
   {
     setHeight(p);
-    if( getBalanceFactor(p)==2 )
+    if( getBalanceFactor(p)>=2 )
     {
         if( getBalanceFactor(p->right) < 0 )
             p->right = rotateRight(p->right);
         return rotateLeft(p);
     }
-    if( getBalanceFactor(p)==-2 )
+    if( getBalanceFactor(p)<=-2 )
     {
         if( getBalanceFactor(p->left) > 0  )
             p->left = rotateLeft(p->left);
@@ -72,7 +66,7 @@ CTerm*        CTerm::balance(CTerm* p) // balancing the p node
 CTerm*      CTerm::insert(CTerm* p, string k) // insert k key in a tree with p root
   {
       if( !p ) return new CTerm(k);
-      if( k<p->key )
+      if( k < p->key )
           p->left = insert(p->left, k);
       else
           p->right = insert(p->right, k);
@@ -86,9 +80,12 @@ CTerm*        CTerm::findMin(CTerm* p) // find a node with minimal key in a p tr
 
 CTerm*        CTerm::removeMin(CTerm* p) // deleting a node with minimal key from a p tree
   {
-      if( p->left==0 )
-          return p->right;
+      if( ! p->left ){
+        return p->right;
+      }
       p->left = removeMin(p->left);
+
+      //p->remove(p, p->findMin(p)->key);
       return balance(p);
   }
 
@@ -105,15 +102,23 @@ CTerm*        CTerm::remove(CTerm* p, string k) // deleting k key from p tree
           CTerm* r = p->right;
           delete p;
           if( !r ) return q;
-          CTerm* min = findMin(p);
-          min->right = removeMin(p);
+          CTerm* min = findMin(r);
+          min->right = removeMin(r);
           min->left = q;
           return balance(min);
       }
       return balance(p);
   }
 
-
+  void in_order_traversal(CTerm *p)
+  {
+          if(p)
+          {
+                  in_order_traversal(p->left);
+                  cout << p->key << ',' ;
+                  in_order_traversal(p->right);
+          }
+  }
 // int main()
 // {
 //   return 0;
