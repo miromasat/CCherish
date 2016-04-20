@@ -1,12 +1,17 @@
 #include "CTerm.h"
 
 
-CTerm::CTerm(int k, string d)
+CTerm::CTerm(string k)
   {
     key = k;
     data = data;
     left = right = nullptr;
     height = 1;
+  }
+
+CTerm::CTerm()
+  {
+    left = right = nullptr;
   }
 
 unsigned char CTerm::getHeight(CTerm* p)
@@ -64,13 +69,13 @@ CTerm*        CTerm::balance(CTerm* p) // balancing the p node
     return p; // balancing is not required
   }
 
-CTerm*      CTerm::insert(CTerm* p, int k, string data) // insert k key in a tree with p root
+CTerm*      CTerm::insert(CTerm* p, string k) // insert k key in a tree with p root
   {
-      if( !p ) return new CTerm(k, data);
+      if( !p ) return new CTerm(k);
       if( k<p->key )
-          p->left = insert(p->left, k, data);
+          p->left = insert(p->left, k);
       else
-          p->right = insert(p->right, k, data);
+          p->right = insert(p->right, k);
       return balance(p);
   }
 
@@ -87,7 +92,7 @@ CTerm*        CTerm::removeMin(CTerm* p) // deleting a node with minimal key fro
       return balance(p);
   }
 
-CTerm*        CTerm::remove(CTerm* p, int k) // deleting k key from p tree
+CTerm*        CTerm::remove(CTerm* p, string k) // deleting k key from p tree
   {
       if( !p ) return 0;
       if( k < p->key )
@@ -109,7 +114,7 @@ CTerm*        CTerm::remove(CTerm* p, int k) // deleting k key from p tree
   }
 
 
-int main()
-{
-  return 0;
-}
+// int main()
+// {
+//   return 0;
+// }

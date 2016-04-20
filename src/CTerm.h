@@ -4,13 +4,14 @@ using namespace std;
 
 struct CTerm
 {
-    int                           key;
+    string                        key;
     unsigned char                 height;
     string                        data;
     CTerm*                        left;
     CTerm*                        right;
     //construct, destruct
-                  CTerm           (int k, string d);
+                  CTerm           (string k);
+                  CTerm           ();
                   //~CTerm          ();
     //methods
     unsigned char getHeight       (CTerm* p);
@@ -19,8 +20,8 @@ struct CTerm
     CTerm*        balance         (CTerm* p);
     CTerm*        rotateRight     (CTerm* p);
     CTerm*        rotateLeft      (CTerm* p);
-    CTerm*        insert          (CTerm* p, int k, string data);
+    CTerm*        insert          (CTerm* p, string k);
     CTerm*        findMin         (CTerm* p);
     CTerm*        removeMin       (CTerm* p);
-    CTerm*        remove          (CTerm* p, int k);
+    CTerm*        remove          (CTerm* p, string k);
 };

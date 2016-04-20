@@ -1,4 +1,3 @@
-Search interest in players in the Women's World Cup 2015 since 2004,
 Player,Search Interest
 Hope SOLO,100
 Alex MORGAN,55.88090026
@@ -256,7 +255,7 @@ ALINE,0.02446623307
 Leena KHAMIS,0.02412321122
 Raissa Feudjio,0.02409662037
 Collette McCALLUM,0.02373897356
- roseane ,0.0221315572
+Roseane ,0.0221315572
 Clare POLKINGHORNE,0.02140562724
 Katie HOYLE,0.02101341233
 Renée Slegers,0.02099081011
@@ -284,7 +283,7 @@ Aroon CLANSEY,0.01438830422
 Nagore Calderón,0.01438165651
 Ainhoa Tirapu,0.01438032697
 Jennifer Hermoso,0.01437102017
-FRANCIELLE,0.01397747572
+Boani FRANCIELLE,0.01397747572
 Jodi-Ann ROBINSON,0.0139734871
 Precious DEDE,0.0136038744
 Ejangue Siliki,0.01360254486
@@ -312,31 +311,31 @@ Uchechi SUNDAY,0.00660782406
 Sari van Veenendaal,0.00660782406
 Anna GREEN,0.006224915945
 Kristine Wigdahl HEGLAND,0.005831371494
-Sandra Paños,0.005443145212
+Sandra PANOS,0.005443145212
 Helen UKAONU,0.005441815669
- andres vera ,0.005048271218
+Andres VERA,0.005048271218
 Gabrielle Onguene,0.00466270402
-BARBARA,0.004658715394
-ELAINE,0.004658715394
+Barbara WEISS,0.004658715394
+Page ELAINE,0.004658715394
 Sara LARSSON,0.004275807279
-Maitane López,0.004270489111
-Naphat Seesraum(Captain),0.004270489111
+Maitane LOPEZ,0.004270489111
+Naphat SEESRAUM,0.004270489111
 Osinachi OHALE,0.003886251454
 Carmen RODALLEGA,0.003498025171
 Lina NILSSON,0.003498025171
 Kim CARROLL,0.002722902148
-Dominique Janssen,0.002720243064
-Yeo Min-ji,0.002720243064
+Dominique JANSSEN,0.002720243064
+Yeo MIN-JI,0.002720243064
 Thanatta Chawong,0.002336005407
 Erika Vázquez,0.002329357697
 Erika Vázquez,0.002329357697
- erika vanegas ,0.001946449582
+Erika vanegas ,0.001946449582
 Natalie GARCIA,0.001946449582
 Djelika Coulibaly,0.001941131414
 José Nahi,0.001941131414
 Gaëlle Enganamouit,0.001941131414
- juana lopez ,0.001556893757
- zhang yue ,0.001554234673
+juana lopez ,0.001556893757
+zhang yue ,0.001554234673
 Jun Min-Kyung,0.001554234673
 Christine Manie (c),0.001554234673
 Sarah McLAUGHLIN,0.00116600839
@@ -344,28 +343,28 @@ Natalia GAITAN,0.00116600839
 Sarah MICHAEL,0.00116600839
 Tochukwu OLUEHI,0.00116600839
 Elixabet Ibarra,0.00116600839
- paula nicart ,0.00116600839
+paula nicart ,0.00116600839
 Cho So-Hyun,0.00116600839
 Jeanne Essoh,0.001164678848
 Amon Elloh,0.001164678848
- shirley berruz ,0.001164678848
+shirley berruz ,0.001164678848
 Josephine CHUKWUNONYE,0.0007777821077
 Ulunma JEROME,0.0007777821077
 Ligia Moreira,0.0007764525656
- alejandra velasco ,0.0003882262828
- rebecca kalu ,0.0003882262828
+alejandra velasco ,0.0003882262828
+rebecca kalu ,0.0003882262828
 Caroline KNUTSEN,0.0003882262828
 Dominique Thiamalé (c),0.0003882262828
- ma jun ,0.0003882262828
- mariam ugalde ,0.0003882262828
- lee young-ju ,0.0003882262828
- ngo beleck ,0.0003882262828
- nancy aguilar ,0.0003882262828
- merly zambrano ,0.0003882262828
+ma jun ,0.0003882262828
+mariam ugalde ,0.0003882262828
+lee young-ju ,0.0003882262828
+ngo beleck ,0.0003882262828
+nancy aguilar ,0.0003882262828
+merly zambrano ,0.0003882262828
 Carina Caicedo,0.0003882262828
- adriana barre ,0.0003882262828
- genesis casierra ,0.0003882262828
- silawan intamee ,0.0003882262828
+adriana barre ,0.0003882262828
+genesis casierra ,0.0003882262828
+silawan intamee ,0.0003882262828
 Caroline PIZZALA,0
 Yuli MUNOZ,0
 Diana OSPINA,0
@@ -380,52 +379,52 @@ Ingrid VIDAL,0
 Katerin CASTRO,0
 Fatima MONTANO,0
 Orianica VELASQUEZ,0
- glory iroka ,0
- amenze aighewi ,0
+glory iroka ,0
+amenze aighewi ,0
 Alaba JONATHAN,0
 Hedda GARDSJORD,0
- sara serrat ,0
+sara serrat ,0
 Celia Jiménez,0
 Melanie Serrano,0
- irene del río ,0
+irene del río ,0
 Carolina Férez,0
 Lydie Saki,0
 Fatou Coulibaly,0
- nina kphao ,0
- mariam diakité ,0
+nina kphao ,0
+mariam diakité ,0
 Rita Akaffou,0
- tia vino ines n'rehy ,0
+tia vino ines n'rehy ,0
 Cecile Esmei,0
- koko n'guessan ,0
+koko n'guessan ,0
 Ida Guehai,0
 Fernande Noukeu,0
 Christine Yeblé,0
- nadege cissé ,0
- sabine nogbou ,0
+nadege cissé ,0
+sabine nogbou ,0
 Marie Yassi,0
- chacoum koutouan ,0
+chacoum koutouan ,0
 Cynthia Djohore,0
 Stefanie van der Gragt,0
 Ellen Jansen,0
 Tessel Middag,0
- liza van der most ,0
- liu shanshan ,0
+liza van der most ,0
+liu shanshan ,0
 Wang Shanshan,0
- li jiayue ,0
- wu haiyan c ,0
+li jiayue ,0
+wu haiyan c ,0
 Li Dongna,0
 Xu Yanlu,0
 Li Ying,0
- gao qi ,0
- lei jiahui ,0
+gao qi ,0
+lei jiahui ,0
 Gu Yasha,0
- tan ruyin ,0
- wang lisi ,0
+tan ruyin ,0
+wang lisi ,0
 Ren Guixin,0
- tang jiali ,0
- zhang rui ,0
+tang jiali ,0
+zhang rui ,0
 Yang Li,0
- zhao rong ,0
+zhao rong ,0
 Dinnia Díaz,0
 Gabriela Guillén,0
 Mariana Benavides,0
@@ -443,66 +442,66 @@ Daphnne Herrera,0
 Yirlania Arroyo,0
 Fabiola Sánchez,0
 Wendy Acosta,0
- kim jung-mi ,0
- min yu-kyeong ,0
+kim jung-mi ,0
+min yu-kyeong ,0
 Lim Seon-Joo,0
- lee eun-mi ,0
- eo hee-jin ,0
- ahn hye-in ,0
- song su-ran ,0
- seo hyun-sook ,0
- kim hye-ri ,0
- kim do-yeon ,0
- kim na-rae ,0
- lee so-dam ,0
+lee eun-mi ,0
+eo hee-jin ,0
+ahn hye-in ,0
+song su-ran ,0
+seo hyun-sook ,0
+kim hye-ri ,0
+kim do-yeon ,0
+kim na-rae ,0
+lee so-dam ,0
 Park Hee-Young,0
- kim soo-yun ,0
+kim soo-yun ,0
 Kwon Hah-Nul,0
 Yoo Young-A,0
 Annette Ngo Ndom,0
 Yvonne Leuko,0
 Francine Zouga,0
 Jeannette Yango,0
- iven mihamlé ,0
- cathy bou jouh ,0
- balbine mendoua ,0
+iven mihamlé ,0
+cathy bou jouh ,0
+balbine mendoua ,0
 Ysis Sonkeng,0
- téclaire mbororo ,0
- akaba edoua ,0
- rita wanki ,0
- enyegue bessala ,0
- rose bella ,0
- katherine ortíz ,0
- mayra olivera ,0
- angie ponce ,0
- ingrid rodríguez ,0
+téclaire mbororo ,0
+akaba edoua ,0
+rita wanki ,0
+enyegue bessala ,0
+rose bella ,0
+katherine ortíz ,0
+mayra olivera ,0
+angie ponce ,0
+ingrid rodríguez ,0
 Giannina Lattanzio,0
 Ambar Torres,0
 María Vasconez,0
- ines jhonson ,0
- sofia carchipulla ,0
- tamara angulo ,0
- kerlly carranza ,0
- denise pensates ,0
- iliana bowen ,0
- waraporn boonsing ,0
- sukanya chor.charoenying ,0
- yada sengyong ,0
- darut changplook ,0
- natthakarn chinwong ,0
+ines jhonson ,0
+sofia carchipulla ,0
+tamara angulo ,0
+kerlly carranza ,0
+denise pensates ,0
+iliana bowen ,0
+waraporn boonsing ,0
+sukanya chor.charoenying ,0
+yada sengyong ,0
+darut changplook ,0
+natthakarn chinwong ,0
 Duangnapa Sritala,0
- warunee phetwiset ,0
+warunee phetwiset ,0
 Sunisa Srangthaisong,0
- kwanruethai kunupatham ,0
- khwanruedi saengchan ,0
- supaphon gaewbaen ,0
- pikul khueanpet ,0
- wilaiporn boothduang ,0
- orathai srimanee ,0
+kwanruethai kunupatham ,0
+khwanruedi saengchan ,0
+supaphon gaewbaen ,0
+pikul khueanpet ,0
+wilaiporn boothduang ,0
+orathai srimanee ,0
 Anootsara Maijarern,0
- jaruwan chaiyaruk ,0
- dujdao wahamongkon ,0
- ainon phancha ,0
+jaruwan chaiyaruk ,0
+dujdao wahamongkon ,0
+ainon phancha ,0
 Nisa Romyen,0
 Rattikan Thongsombut,0
- alisa rukpinij ,0
+alisa rukpinij ,0
