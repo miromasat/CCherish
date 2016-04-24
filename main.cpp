@@ -5,6 +5,8 @@
 #include "./misc/trim.cpp"
 #include "./src/CTerm.cpp"
 #include "./src/CTermTree.cpp"
+#include "./src/CPriority.cpp"
+#include "./src/CPriorityHeap.cpp"
 
 using namespace std;
 
@@ -30,6 +32,8 @@ int main(int argc, char const *argv[]) {
 
   //CTerm *DTree = new CTerm("mariana gedrova");
   AVLtree<string> DTree;
+  CPriorityHeap< CPriority<string> > PTree(11);
+
   //DTree->remove(DTree, "root");
   while ( getline(myfile,k,',') )
     {     getline (myfile,p);
@@ -39,7 +43,11 @@ int main(int argc, char const *argv[]) {
       entry->termKey      = k;
       entry->termPriority = ::atof(p.c_str());
 
-      DTree.insert(k);
+      CPriority<string> temp(entry->termKey, entry->termPriority);
+
+      PTree.insert( temp );
+
+      DTree.insert(entry->termKey);
       cout << endl;
 
       cout << entry->termKey << " with a priority of " << entry->termPriority << endl;
@@ -54,7 +62,7 @@ int main(int argc, char const *argv[]) {
 
 
     int min = 0;
-    while (min < 20)
+    while (min < 10)
     {
       string delKey = DTree.findMin();
       cout << min << ": " << delKey << endl;
