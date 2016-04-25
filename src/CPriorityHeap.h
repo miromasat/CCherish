@@ -19,5 +19,8 @@ private:
     float minPriority;
     int size;
     int index;
+
+    bool    bubbleUp(int i);
+    bool    bubbleDown(int i);
 };
 #endif

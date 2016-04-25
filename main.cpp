@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]) {
 
   //CTerm *DTree = new CTerm("mariana gedrova");
   AVLtree<string> DTree;
-  CPriorityHeap<string> PTree(11);
+  CPriorityHeap<string> PTree(530);
 
   //DTree->remove(DTree, "root");
   while ( getline(myfile,k,',') )
@@ -64,17 +64,17 @@ int main(int argc, char const *argv[]) {
 
 
     int min = 0;
-    while (min < 10)
-    {
-      string delKey = DTree.findMin();
-      cout << min << ": " << delKey << endl;
-      DTree.printInOrder();
-      cout << endl;
-      DTree.deleteKey(delKey);
-
-      //DTree->remove(DTree, left->key);
-      min++;
-    }
+    // while (min < 10)
+    // {
+    //   string delKey = DTree.findMin();
+    //   cout << min << ": " << delKey << endl;
+    //   DTree.printInOrder();
+    //   cout << endl;
+    //   DTree.deleteKey(delKey);
+    //
+    //   //DTree->remove(DTree, left->key);
+    //   min++;
+    // }
 
 
 

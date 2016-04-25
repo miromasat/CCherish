@@ -1,6 +1,7 @@
 #include "CPriorityHeap.h"
 
 #include <vector>
+#include <math.h>
 
 template <class T>
 CPriorityHeap<T>::CPriorityHeap(int s)
@@ -20,14 +21,18 @@ CPriorityHeap<T>::~CPriorityHeap<T>(void)
 template <class T>
 bool CPriorityHeap<T>::insert(T key, float priority)
 {
-  CPriority<string> temp(key, priority);
+  if (index > size)
+    return false;
+
+  CPriority<T> temp(key, priority);
   heap.push_back( temp );
+
+  bubbleUp(index);
   index++;
 
-  if (index <= size)
-    return true;
 
-  return false;
+
+  return true;
 }
 
 template <class T>
@@ -57,4 +62,28 @@ void CPriorityHeap<T>::deleteKey(const T key)
         }
 
   }
+}
+
+template <class T>
+bool CPriorityHeap<T>::bubbleUp(int i) {
+  int p = floor(i/2);
+
+  while (p >= 0)
+  {
+    if (heap[i].priority < heap[p].priority)
+    {
+      //cout << "X" << endl;
+      CPriority<T> temp(heap[p].key, heap[p].priority);
+
+      heap[p].priority = heap[i].priority;
+      heap[p].key = heap[i].key;
+
+      heap[i].priority = temp.priority;
+      heap[i].key = temp.key;
+    }else break;
+
+    i = p;
+    p = floor(i/2);
+  }
+  return true;
 }

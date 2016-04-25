@@ -1,4 +1,3 @@
-Player,Search Interest
 Hope SOLO,100
 Alex MORGAN,55.88090026
 Abby WAMBACH,18.35107348
