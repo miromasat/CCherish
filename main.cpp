@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]) {
 
   //CTerm *DTree = new CTerm("mariana gedrova");
   AVLtree<string> DTree;
-  CPriorityHeap< CPriority<string> > PTree(11);
+  CPriorityHeap<string> PTree(11);
 
   //DTree->remove(DTree, "root");
   while ( getline(myfile,k,',') )
@@ -43,9 +43,9 @@ int main(int argc, char const *argv[]) {
       entry->termKey      = k;
       entry->termPriority = ::atof(p.c_str());
 
-      CPriority<string> temp(entry->termKey, entry->termPriority);
+      //CPriority<string> temp(entry->termKey, entry->termPriority);
 
-      PTree.insert( temp );
+      PTree.insert(entry->termKey, entry->termPriority);
 
       DTree.insert(entry->termKey);
       cout << endl;

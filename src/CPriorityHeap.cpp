@@ -18,9 +18,10 @@ CPriorityHeap<T>::~CPriorityHeap<T>(void)
 
 
 template <class T>
-bool CPriorityHeap<T>::insert(T key)
+bool CPriorityHeap<T>::insert(T key, float priority)
 {
-  heap.push_back(key);
+  CPriority<string> temp(key, priority);
+  heap.push_back( temp );
   index++;
 
   if (index <= size)
@@ -41,6 +42,10 @@ void CPriorityHeap<T>::deleteKey(const T key)
   for(typename vector<T>::iterator it = heap.begin(); it != heap.end(); ++it) {
     if (key.key == it.key)
       if (key.priority == it.key)
-        heap.erase(it);
+        {
+          heap.erase(it);
+          index--;
+        }
+
   }
 }
