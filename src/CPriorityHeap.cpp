@@ -37,11 +37,20 @@ T CPriorityHeap<T>::findMin()
 }
 
 template <class T>
+void CPriorityHeap<T>::printHeap() {
+
+    for(typename vector< CPriority<T> >::iterator it = heap.begin(); it != heap.end(); ++it)
+      cout << it->priority << "-" << it->key << " ,";
+
+    cout << endl;
+}
+
+template <class T>
 void CPriorityHeap<T>::deleteKey(const T key)
 {
   for(typename vector<T>::iterator it = heap.begin(); it != heap.end(); ++it) {
     if (key.key == it.key)
-      if (key.priority == it.key)
+      if (key.priority == it.priority)
         {
           heap.erase(it);
           index--;

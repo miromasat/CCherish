@@ -12,6 +12,7 @@ public:
 
     bool    insert(T key, float priority);
     void    deleteKey(const T key);
+    void    printHeap();
     T       findMin();
 private:
     vector< CPriority<T> > heap;

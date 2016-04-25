@@ -47,11 +47,13 @@ int main(int argc, char const *argv[]) {
 
       PTree.insert(entry->termKey, entry->termPriority);
 
+
       DTree.insert(entry->termKey);
-      cout << endl;
+      //cout << endl;
 
       cout << entry->termKey << " with a priority of " << entry->termPriority << endl;
-      DTree.printInOrder();
+      PTree.printHeap();
+      //DTree.printInOrder();
       //CTerm *left = DTree->findMin(DTree);
       //cout << "Minimal node: " << left->key << endl;
     }
