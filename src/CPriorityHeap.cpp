@@ -51,17 +51,26 @@ void CPriorityHeap<T>::printHeap() {
 }
 
 template <class T>
-void CPriorityHeap<T>::deleteKey(const T key)
+T CPriorityHeap<T>::deleteKey(const T key)
 {
-  for(typename vector<T>::iterator it = heap.begin(); it != heap.end(); ++it) {
-    if (key.key == it.key)
-      if (key.priority == it.priority)
+  T res;
+  for(typename vector< CPriority<T> >::iterator it = heap.begin(); it != heap.end(); ++it) {
+    if (key == it->key)
+      //if (key.priority == it->priority)
         {
+          int pos = it - heap.begin();
+          T delKey = it->key;
+          heap.insert(it, heap[index - 1]);
           heap.erase(it);
           index--;
+
+          bubbleDown(0);
+          return delKey;
         }
 
   }
+
+  return res;
 }
 
 template <class T>
@@ -72,7 +81,6 @@ bool CPriorityHeap<T>::bubbleUp(int i) {
   {
     if (heap[i].priority < heap[p].priority)
     {
-      //cout << "X" << endl;
       CPriority<T> temp(heap[p].key, heap[p].priority);
 
       heap[p].priority = heap[i].priority;
@@ -84,6 +92,47 @@ bool CPriorityHeap<T>::bubbleUp(int i) {
 
     i = p;
     p = floor(i/2);
+  }
+  return true;
+}
+
+template <class T>
+int CPriorityHeap<T>::minChild(int i) {
+  int cl = i*2, cr = cl+1;
+
+  if (cr > index - 1)
+    return cl;
+  else
+  {
+    if (heap[cl].priority < heap[cr].priority)
+      return cl;
+    else
+      return cr;
+  }
+
+
+  return i;
+}
+
+template <class T>
+bool CPriorityHeap<T>::bubbleDown(int i) {
+  int c = minChild(i);
+
+  while (c < index)
+  {
+    if (heap[i].priority > heap[c].priority)
+    {
+      CPriority<T> temp(heap[c].key, heap[c].priority);
+
+      heap[c].priority = heap[i].priority;
+      heap[c].key = heap[i].key;
+
+      heap[i].priority = temp.priority;
+      heap[i].key = temp.key;
+    }else break;
+
+    i = c;
+    c = minChild(i);
   }
   return true;
 }

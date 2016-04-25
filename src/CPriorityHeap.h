@@ -11,7 +11,7 @@ public:
     ~CPriorityHeap(void);
 
     bool    insert(T key, float priority);
-    void    deleteKey(const T key);
+    T       deleteKey(const T key);
     void    printHeap();
     T       findMin();
 private:
@@ -22,5 +22,6 @@ private:
 
     bool    bubbleUp(int i);
     bool    bubbleDown(int i);
+    int     minChild(int i);
 };
 #endif
