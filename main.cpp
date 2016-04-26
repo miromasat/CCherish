@@ -45,49 +45,15 @@ int main(int argc, char const *argv[]) {
       entry->termKey      = k;
       entry->termPriority = ::atof(p.c_str());
 
-      //CPriority<string> temp(entry->termKey, entry->termPriority);
-
-      PTree.insert(entry->termKey, entry->termPriority);
-
-
-      DTree.insert(entry->termKey);
-      //cout << endl;
-
-      cout << entry->termKey << " with a priority of " << entry->termPriority << endl;
-      PTree.printHeap();
-
       DB.insert(entry->termKey, entry->termPriority);
-      //DTree.printInOrder();
-      //CTerm *left = DTree->findMin(DTree);
-      //cout << "Minimal node: " << left->key << endl;
     }
 
-    string res = PTree.deleteMin();
-    PTree.printHeap();
-    res = PTree.deleteMin();
-    PTree.printHeap();
-    res = PTree.deleteMin();
-    PTree.printHeap();
-
-    //in_order_traversal(DTree);
-    cout << endl;
-
-
-    int min = 0;
-    // while (min < 10)
-    // {
-    //   string delKey = DTree.findMin();
-    //   cout << min << ": " << delKey << endl;
-    //   DTree.printInOrder();
-    //   cout << endl;
-    //   DTree.deleteKey(delKey);
-    //
-    //   //DTree->remove(DTree, left->key);
-    //   min++;
-    // }
-
-
-
+    DB.deleteKey("adela blazkova");
+    DB.display();
+    DB.deleteKey("monika frolocova");
+    DB.display();
+    DB.deleteKey("miroslav masat");
+    DB.display();
 
 
   myfile.close();

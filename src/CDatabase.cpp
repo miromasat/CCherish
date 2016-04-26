@@ -20,6 +20,8 @@ bool CDatabase<T>::insert(T key, float priority)
     return false;
   PTree.insert(key, priority);
   DTree.insert(key);
+
+  index++;
   return true;
 }
 
@@ -33,4 +35,11 @@ T CDatabase<T>::deleteKey(const T key)
   PTree.deleteKey(key);
   DTree.deleteKey(key);
   return key;
+}
+
+template <class T>
+void CDatabase<T>::display()
+{
+  PTree.printHeap();
+  DTree.printInOrder();
 }

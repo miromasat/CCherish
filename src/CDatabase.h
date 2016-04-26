@@ -13,6 +13,7 @@ public:
     bool    insert(T key, float priority);
     T       deleteKey(const T key);
     T       search();
+    void    display();
 private:
     int size;
     int index;
