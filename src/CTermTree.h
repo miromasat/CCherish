@@ -4,10 +4,10 @@
 #include "CTerm.h"
 /* AVL tree */
 template <class T>
-class AVLtree {
+class CTermTree {
 public:
-    AVLtree(void);
-    ~AVLtree(void);
+    CTermTree(void);
+    ~CTermTree(void);
     bool insert(T key);
     void deleteKey(const T key);
     void printBalance();
@@ -15,18 +15,18 @@ public:
     T findMin();
 
 private:
-    AVLnode<T> *root;
+    CTerm<T> *root;
 
-    AVLnode<T>* rotateLeft          ( AVLnode<T> *a );
-    AVLnode<T>* rotateRight         ( AVLnode<T> *a );
-    AVLnode<T>* rotateLeftThenRight ( AVLnode<T> *n );
-    AVLnode<T>* rotateRightThenLeft ( AVLnode<T> *n );
-    AVLnode<T>* findMin             ( AVLnode<T> *n );
-    void rebalance                  ( AVLnode<T> *n );
-    int height                      ( AVLnode<T> *n );
-    void setBalance                 ( AVLnode<T> *n );
-    void printBalance               ( AVLnode<T> *n );
-    void printInOrder               ( AVLnode<T> *n );
-    void clearNode                  ( AVLnode<T> *n );
+    CTerm<T>* rotateLeft          ( CTerm<T> *a );
+    CTerm<T>* rotateRight         ( CTerm<T> *a );
+    CTerm<T>* rotateLeftThenRight ( CTerm<T> *n );
+    CTerm<T>* rotateRightThenLeft ( CTerm<T> *n );
+    CTerm<T>* findMin             ( CTerm<T> *n );
+    void rebalance                  ( CTerm<T> *n );
+    int height                      ( CTerm<T> *n );
+    void setBalance                 ( CTerm<T> *n );
+    void printBalance               ( CTerm<T> *n );
+    void printInOrder               ( CTerm<T> *n );
+    void clearNode                  ( CTerm<T> *n );
 };
 #endif

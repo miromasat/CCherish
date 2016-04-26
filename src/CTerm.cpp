@@ -5,7 +5,7 @@
 using namespace std;
 
 template <class T>
-AVLnode<T>::AVLnode(T k, AVLnode *p) {
+CTerm<T>::CTerm(T k, CTerm *p) {
   key = k;
   balance = 0;
   parent = p;
@@ -13,7 +13,7 @@ AVLnode<T>::AVLnode(T k, AVLnode *p) {
 }
 
 template <class T>
-AVLnode<T>::~AVLnode<T>() {
+CTerm<T>::~CTerm<T>() {
           delete left;
           delete right;
 }

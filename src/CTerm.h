@@ -2,13 +2,13 @@
 #define __CTerm_h__
 /* AVL node */
 template <class T>
-class AVLnode {
+class CTerm {
 public:
     T key;
     int balance;
-    AVLnode *left, *right, *parent;
+    CTerm *left, *right, *parent;
 
-    AVLnode(T k, AVLnode *p);
-    ~AVLnode();
+    CTerm(T k, CTerm *p);
+    ~CTerm();
 };
 #endif

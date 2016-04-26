@@ -8,7 +8,7 @@ using namespace std;
 
 /* AVL class definition */
 template <class T>
-void AVLtree<T>::rebalance(AVLnode<T> *n) {
+void CTermTree<T>::rebalance(CTerm<T> *n) {
     setBalance(n);
 
     if (n->balance == -2) {
@@ -33,8 +33,8 @@ void AVLtree<T>::rebalance(AVLnode<T> *n) {
 }
 
 template <class T>
-AVLnode<T>* AVLtree<T>::rotateLeft(AVLnode<T> *a) {
-    AVLnode<T> *b = a->right;
+CTerm<T>* CTermTree<T>::rotateLeft(CTerm<T> *a) {
+    CTerm<T> *b = a->right;
     b->parent = a->parent;
     a->right = b->left;
 
@@ -59,8 +59,8 @@ AVLnode<T>* AVLtree<T>::rotateLeft(AVLnode<T> *a) {
 }
 
 template <class T>
-AVLnode<T>* AVLtree<T>::rotateRight(AVLnode<T> *a) {
-    AVLnode<T> *b = a->left;
+CTerm<T>* CTermTree<T>::rotateRight(CTerm<T> *a) {
+    CTerm<T> *b = a->left;
     b->parent = a->parent;
     a->left = b->right;
 
@@ -85,31 +85,31 @@ AVLnode<T>* AVLtree<T>::rotateRight(AVLnode<T> *a) {
 }
 
 template <class T>
-AVLnode<T>* AVLtree<T>::rotateLeftThenRight(AVLnode<T> *n) {
+CTerm<T>* CTermTree<T>::rotateLeftThenRight(CTerm<T> *n) {
     n->left = rotateLeft(n->left);
     return rotateRight(n);
 }
 
 template <class T>
-AVLnode<T>* AVLtree<T>::rotateRightThenLeft(AVLnode<T> *n) {
+CTerm<T>* CTermTree<T>::rotateRightThenLeft(CTerm<T> *n) {
     n->right = rotateRight(n->right);
     return rotateLeft(n);
 }
 
 template <class T>
-int AVLtree<T>::height(AVLnode<T> *n) {
+int CTermTree<T>::height(CTerm<T> *n) {
     if (n == NULL)
         return -1;
     return 1 + std::max(height(n->left), height(n->right));
 }
 
 template <class T>
-void AVLtree<T>::setBalance(AVLnode<T> *n) {
+void CTermTree<T>::setBalance(CTerm<T> *n) {
     n->balance = height(n->right) - height(n->left);
 }
 
 template <class T>
-void AVLtree<T>::printBalance(AVLnode<T> *n) {
+void CTermTree<T>::printBalance(CTerm<T> *n) {
     if (n != NULL) {
         printBalance(n->left);
         std::cout << n->balance << " ";
@@ -118,7 +118,7 @@ void AVLtree<T>::printBalance(AVLnode<T> *n) {
 }
 
 template <class T>
-void AVLtree<T>::printInOrder(AVLnode<T> *n) {
+void CTermTree<T>::printInOrder(CTerm<T> *n) {
     if (n != NULL) {
         printInOrder(n->left);
         std::cout << n->key << ",";
@@ -127,25 +127,25 @@ void AVLtree<T>::printInOrder(AVLnode<T> *n) {
 }
 
 template <class T>
-AVLnode<T>* AVLtree<T>::findMin(AVLnode<T> *n) {
+CTerm<T>* CTermTree<T>::findMin(CTerm<T> *n) {
     return (n->left) ? findMin(n->left) : n;
 }
 
 template <class T>
-AVLtree<T>::AVLtree(void) : root(NULL) {}
+CTermTree<T>::CTermTree(void) : root(NULL) {}
 
 template <class T>
-AVLtree<T>::~AVLtree(void) {
+CTermTree<T>::~CTermTree(void) {
     delete root;
 }
 
 template <class T>
-bool AVLtree<T>::insert(T key) {
+bool CTermTree<T>::insert(T key) {
     if (root == NULL) {
-        root = new AVLnode<T>(key, NULL);
+        root = new CTerm<T>(key, NULL);
     }
     else {
-        AVLnode<T>
+        CTerm<T>
             *n = root,
             *parent;
 
@@ -160,10 +160,10 @@ bool AVLtree<T>::insert(T key) {
 
             if (n == NULL) {
                 if (goLeft) {
-                    parent->left = new AVLnode<T>(key, parent);
+                    parent->left = new CTerm<T>(key, parent);
                 }
                 else {
-                    parent->right = new AVLnode<T>(key, parent);
+                    parent->right = new CTerm<T>(key, parent);
                 }
 
                 rebalance(parent);
@@ -176,11 +176,11 @@ bool AVLtree<T>::insert(T key) {
 }
 
 template <class T>
-void AVLtree<T>::deleteKey(const T delKey) {
+void CTermTree<T>::deleteKey(const T delKey) {
     if (root == NULL)
         return;
 
-    AVLnode<T>
+    CTerm<T>
         *n       = root,
         *parent  = root,
         *delNode = NULL,
@@ -216,19 +216,19 @@ void AVLtree<T>::deleteKey(const T delKey) {
 }
 
 template <class T>
-void AVLtree<T>::printBalance() {
+void CTermTree<T>::printBalance() {
     printBalance(root);
     std::cout << std::endl;
 }
 
 template <class T>
-void AVLtree<T>::printInOrder() {
+void CTermTree<T>::printInOrder() {
     printInOrder(root);
     std::cout << std::endl;
 }
 
 template <class T>
-T AVLtree<T>::findMin() {
-    AVLnode<T> *minKey = findMin(root);
+T CTermTree<T>::findMin() {
+    CTerm<T> *minKey = findMin(root);
     return minKey->key;
 }

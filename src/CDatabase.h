@@ -17,7 +17,7 @@ public:
 private:
     int size;
     int index;
-    AVLtree<T> DTree;
+    CTermTree<T> DTree;
     CPriorityHeap<T> PTree;
 };
 #endif

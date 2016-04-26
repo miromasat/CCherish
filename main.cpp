@@ -32,9 +32,9 @@ int main(int argc, char const *argv[]) {
   ifstream myfile (argv[1]);
 
   //CTerm *DTree = new CTerm("mariana gedrova");
-  AVLtree<string> DTree;
+  CTermTree<string> DTree;
   CPriorityHeap<string> PTree;
-  CDatabase<string> DB(100);
+  CDatabase<string> DB(5);
 
   //DTree->remove(DTree, "root");
   while ( getline(myfile,k,',') )
@@ -48,11 +48,11 @@ int main(int argc, char const *argv[]) {
       DB.insert(entry->termKey, entry->termPriority);
     }
 
-    DB.deleteKey("adela blazkova");
+    DB.deleteKey("michal artazov");
     DB.display();
-    DB.deleteKey("monika frolocova");
+    DB.deleteKey("filip trefil");
     DB.display();
-    DB.deleteKey("miroslav masat");
+    DB.deleteKey("grant zvolsky");
     DB.display();
 
 
