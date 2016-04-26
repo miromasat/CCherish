@@ -6,10 +6,11 @@
 template <class T>
 class CTermTree {
 public:
-    CTermTree(void);
-    ~CTermTree(void);
-    bool insert(T key);
-    void deleteKey(const T key);
+    CTermTree       (void);
+    ~CTermTree      (void);
+    bool insert     (T key);
+    void deleteKey  (const T key);
+    bool search     (const T delKey);
     void printBalance();
     void printInOrder();
     T findMin();

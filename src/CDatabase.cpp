@@ -46,3 +46,15 @@ void CDatabase<T>::display()
   PTree.printHeap();
   DTree.printInOrder();
 }
+
+template <class T>
+T CDatabase<T>::search(const T key)
+{
+  bool s = DTree.search(key);
+
+  if (!s)
+  {
+    PTree.insert(key, 1);
+    DTree.insert(key);
+  }
+}

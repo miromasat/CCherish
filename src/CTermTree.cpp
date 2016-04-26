@@ -232,3 +232,24 @@ T CTermTree<T>::findMin() {
     CTerm<T> *minKey = findMin(root);
     return minKey->key;
 }
+
+template <class T>
+bool CTermTree<T>::search(const T delKey) {
+    if (root == NULL)
+        return false;
+
+    CTerm<T>
+        *n        = root,
+        *parent   = root,
+        *findNode = NULL,
+        *child   = root;
+
+    while (child != NULL) {
+        parent = n;
+        n = child;
+        child = delKey >= n->key ? n->right : n->left;
+        if (delKey == n->key)
+            return true;
+    }
+
+}

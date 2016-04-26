@@ -10,14 +10,14 @@ public:
     CDatabase(int s);
     ~CDatabase(void);
 
-    bool    insert(T key, float priority);
-    T       deleteKey(const T key);
-    T       search();
-    void    display();
+    bool    insert    (T key, float priority);
+    T       deleteKey (const T key);
+    T       search    (const T key);
+    void    display   ();
 private:
     int size;
     int index;
-    CTermTree<T> DTree;
-    CPriorityHeap<T> PTree;
+    CTermTree<T>      DTree;
+    CPriorityHeap<T>  PTree;
 };
 #endif
