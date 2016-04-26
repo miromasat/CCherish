@@ -7,17 +7,17 @@
 template <class T>
 class CPriorityHeap {
 public:
-    CPriorityHeap(int s);
+    CPriorityHeap();
     ~CPriorityHeap(void);
 
     bool    insert(T key, float priority);
     T       deleteKey(const T key);
+    T       deleteMin();
     void    printHeap();
     T       findMin();
 private:
     vector< CPriority<T> > heap;
     float minPriority;
-    int size;
     int index;
 
     bool    bubbleUp(int i);

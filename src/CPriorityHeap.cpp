@@ -4,9 +4,8 @@
 #include <math.h>
 
 template <class T>
-CPriorityHeap<T>::CPriorityHeap(int s)
+CPriorityHeap<T>::CPriorityHeap()
 {
-  size = s;
   index = 0;
 }
 
@@ -14,23 +13,18 @@ template <class T>
 CPriorityHeap<T>::~CPriorityHeap<T>(void)
 {
   heap.erase(heap.begin(), heap.end());
-  size = index = 0;
+  index = 0;
 }
 
 
 template <class T>
 bool CPriorityHeap<T>::insert(T key, float priority)
 {
-  if (index > size)
-    return false;
-
   CPriority<T> temp(key, priority);
   heap.push_back( temp );
 
   bubbleUp(index);
   index++;
-
-
 
   return true;
 }
@@ -137,4 +131,14 @@ bool CPriorityHeap<T>::bubbleDown(int i) {
     c = minChild(i);
   }
   return true;
+}
+
+template <class T>
+T CPriorityHeap<T>::deleteMin() {
+
+    T res = heap[0].key;
+
+    deleteKey(heap[0].key);
+
+    return res;
 }

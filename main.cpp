@@ -7,6 +7,7 @@
 #include "./src/CTermTree.cpp"
 #include "./src/CPriority.cpp"
 #include "./src/CPriorityHeap.cpp"
+#include "./src/CDatabase.cpp"
 
 using namespace std;
 
@@ -32,7 +33,8 @@ int main(int argc, char const *argv[]) {
 
   //CTerm *DTree = new CTerm("mariana gedrova");
   AVLtree<string> DTree;
-  CPriorityHeap<string> PTree(530);
+  CPriorityHeap<string> PTree;
+  CDatabase<string> DB(100);
 
   //DTree->remove(DTree, "root");
   while ( getline(myfile,k,',') )
@@ -53,14 +55,19 @@ int main(int argc, char const *argv[]) {
 
       cout << entry->termKey << " with a priority of " << entry->termPriority << endl;
       PTree.printHeap();
+
+      DB.insert(entry->termKey, entry->termPriority);
       //DTree.printInOrder();
       //CTerm *left = DTree->findMin(DTree);
       //cout << "Minimal node: " << left->key << endl;
     }
 
-    string res = PTree.deleteKey("ursula zakovska");
+    string res = PTree.deleteMin();
     PTree.printHeap();
-    cout << endl << res << endl;
+    res = PTree.deleteMin();
+    PTree.printHeap();
+    res = PTree.deleteMin();
+    PTree.printHeap();
 
     //in_order_traversal(DTree);
     cout << endl;

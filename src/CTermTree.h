@@ -1,3 +1,6 @@
+#ifndef __CTermTree_h__
+#define __CTermTree_h__
+
 #include "CTerm.h"
 /* AVL tree */
 template <class T>
@@ -26,3 +29,4 @@ private:
     void printInOrder               ( AVLnode<T> *n );
     void clearNode                  ( AVLnode<T> *n );
 };
+#endif
