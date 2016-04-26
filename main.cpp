@@ -58,7 +58,7 @@ int main(int argc, char const *argv[]) {
       //cout << "Minimal node: " << left->key << endl;
     }
 
-    string res = PTree.deleteKey("miroslav masat");
+    string res = PTree.deleteKey("ursula zakovska");
     PTree.printHeap();
     cout << endl << res << endl;
 

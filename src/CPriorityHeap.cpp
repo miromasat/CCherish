@@ -54,17 +54,19 @@ template <class T>
 T CPriorityHeap<T>::deleteKey(const T key)
 {
   T res;
+
   for(typename vector< CPriority<T> >::iterator it = heap.begin(); it != heap.end(); ++it) {
     if (key == it->key)
-      //if (key.priority == it->priority)
         {
-          int pos = it - heap.begin();
           T delKey = it->key;
-          heap.insert(it, heap[index - 1]);
-          heap.erase(it);
+
+          it->key       = heap.back().key;
+          it->priority  = heap.back().priority;
+
+          heap.pop_back();
           index--;
 
-          bubbleDown(0);
+          bubbleDown(it - heap.begin());
           return delKey;
         }
 
