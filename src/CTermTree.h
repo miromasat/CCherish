@@ -8,11 +8,16 @@ class CTermTree {
 public:
     CTermTree       (void);
     ~CTermTree      (void);
+    CTerm<T>* deleteKey2(CTerm<T> *root, T delKey);
+
     bool insert     (T key);
     void deleteKey  (const T key);
+    void deleteKey3 (const T key);
+
     bool search     (const T delKey);
     void printBalance();
     void printInOrder();
+    void renderInOrder();
     T findMin();
 
 private:
@@ -28,6 +33,7 @@ private:
     void setBalance                 ( CTerm<T> *n );
     void printBalance               ( CTerm<T> *n );
     void printInOrder               ( CTerm<T> *n );
+    void renderInOrder              (CTerm<T> *n, int level);
     void clearNode                  ( CTerm<T> *n );
 };
 #endif

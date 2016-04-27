@@ -20,10 +20,13 @@ bool CDatabase<T>::insert(T key, float priority)
   {
     T res = PTree.deleteMin();
     DTree.deleteKey(res);
+    cout << "Key deleted: " << res << endl;
+    DTree.printInOrder();
   }
+  cout << "Key inserted: " << key << endl;
   PTree.insert(key, priority);
   DTree.insert(key);
-
+  DTree.printInOrder();
   index++;
   return true;
 }
@@ -31,19 +34,21 @@ bool CDatabase<T>::insert(T key, float priority)
 template <class T>
 T CDatabase<T>::deleteKey(const T key)
 {
+  cout << "Key deleted: " << key << endl;
   T res;
   if (index < 1)
     return res;
 
   PTree.deleteKey(key);
   DTree.deleteKey(key);
+  index--;
   return key;
 }
 
 template <class T>
 void CDatabase<T>::display()
 {
-  PTree.printHeap();
+  //PTree.printHeap();
   DTree.printInOrder();
 }
 
@@ -54,7 +59,8 @@ T CDatabase<T>::search(const T key)
 
   if (!s)
   {
-    PTree.insert(key, 1);
-    DTree.insert(key);
+    insert(key, 1);
   }
+
+  return key;
 }
