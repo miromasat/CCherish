@@ -11,15 +11,13 @@ template <class T>
 void CTermTree<T>::rebalance(CTerm<T> *n) {
     setBalance(n);
 
-    if (n == NULL) return;
-
-    if (n->balance == -2) {
+    if (n->balance <= -2) {
         if (height(n->left->left) >= height(n->left->right))
             n = rotateRight(n);
         else
             n = rotateLeftThenRight(n);
     }
-    else if (n->balance == 2) {
+    else if (n->balance >= 2) {
         if (height(n->right->right) >= height(n->right->left))
             n = rotateLeft(n);
         else
@@ -36,7 +34,7 @@ void CTermTree<T>::rebalance(CTerm<T> *n) {
 
 template <class T>
 CTerm<T>* CTermTree<T>::rotateLeft(CTerm<T> *a) {
-    cout << "ROTATE LEFT" << endl;
+    //cout << "ROTATE LEFT" << endl;
     CTerm<T> *b = a->right;
     b->parent = a->parent;
     a->right = b->left;
@@ -63,7 +61,7 @@ CTerm<T>* CTermTree<T>::rotateLeft(CTerm<T> *a) {
 
 template <class T>
 CTerm<T>* CTermTree<T>::rotateRight(CTerm<T> *a) {
-    cout << "ROTATE RIGHT" << endl;
+    //cout << "ROTATE RIGHT" << endl;
     CTerm<T> *b = a->left;
     b->parent = a->parent;
     a->left = b->right;
@@ -125,26 +123,19 @@ template <class T>
 void CTermTree<T>::printInOrder(CTerm<T> *n) {
     if (n != NULL) {
         printInOrder(n->left);
-        std::cout << n->key << ":"<< &n << ",";
+        std::cout << n->key;
+        if (n->parent) cout << "|_" << n->parent->key << "_| ";
+        else cout << "|_NULL_| ";
+        cout <<"(";
+        if (n->left) cout << n->left->key << "<-";
+        if (n->right) cout << "->" << n->right->key;
+        cout << "), ";
         printInOrder(n->right);
     }
 }
 
 template <class T>
 void CTermTree<T>::renderInOrder(CTerm<T> *n, int level) {
-
-    // int i;
-    // if (n!=NULL)
-    // {
-    //     display(n->right, level + 1);
-    //     printf("\n");
-    //     if (n == root)
-    //     cout<<"Root -> ";
-    //     for (i = 0; i < level && ptr != root; i++)
-    //         cout<<"        ";
-    //     cout<<ptr->data;
-    //     display(ptr->left, level + 1);
-    // }
 
     if (n != NULL) {
         renderInOrder(n->right, level+1);
@@ -200,58 +191,13 @@ bool CTermTree<T>::insert(T key) {
                     parent->right = new CTerm<T>(key, parent);
                 }
 
-                //rebalance(parent);
+                rebalance(parent);
                 break;
             }
         }
     }
 
     return true;
-}
-
-template <class T>
-CTerm<T>* CTermTree<T>::deleteKey2(CTerm<T> *r, T delKey){
-  if(r == NULL) return r;
-  else if(delKey < r->key) r->left  = deleteKey2(r->left,  delKey);
-  else if(delKey > r->key) r->right = deleteKey2(r->right, delKey);
-  else {
-    //cout << "Nasiel som: " << delKey << endl;
-    // Case 1: No Child
-    if(r->left == NULL && r->right == NULL){
-      //cout << "Deti nemal" << endl;
-      delete r;
-      r = NULL;
-    // Case 2: one child
-    } else if(r->left == NULL){
-      //CTerm<T> *temp = r;
-      r = r->right;
-      rebalance(r);
-      //delete temp;
-      //cout << "Mal praveho syna" << endl;
-    } else if(r->right == NULL){
-      //CTerm<T> *temp = r;
-      r = r->left;
-      rebalance(r);
-      //delete temp;
-      //cout << "Mal laveho syna" << endl;
-    } else{
-      CTerm<T> *temp = findMin(r->right);
-      //cout << "Mal oboch synov a nasledovnik je: " << temp->key << endl;
-      r->key = temp->key;
-      r->right = deleteKey2(r->right, temp->key);
-    }
-
-    //rebalance(r);
-
-
-  }
-  //rebalance(r);
-  return r;
-}
-
-template <class T>
-void CTermTree<T>::deleteKey3(const T delKey) {
-  root = deleteKey2(root, delKey);
 }
 
 
@@ -276,33 +222,39 @@ void CTermTree<T>::deleteKey(const T delKey) {
         }
     }
 
-    /*cout << "N = " << n->key;
-    cout << ", PARENT = " << parent->key;
-    cout << ", DELNODE = " << delNode->key << endl;*/
-    //cout << ", CHILD = " << child->key << endl;
-
     if (delNode != NULL) {
         delNode->key = n->key;
 
         child = n->left != NULL ? n->left : n->right;
         //cout << "CHILD = " << child->key << endl;
         if (root->key == delKey) {
-            //CTerm<T> * newRoot = child;
+            root->left = root->right = NULL; delete root; root = NULL;
             root = child;
-            cout << "WHOOP root " << endl;
+            root->parent = NULL;
         }
         else {
             if (parent->left == n) {
-                delete parent->right;
-                cout << "OLD" << parent->left;
+                //cout << "LEFT OMMITED" << endl;
+                //parent->left->left = parent->left->right = NULL;
+                //delete parent->left; parent->left = NULL;
+                //child->parent = parent->left;
                 parent->left = child;
-                cout << "; NEW" << parent->left << endl;
+                if (parent->left != NULL)
+                parent->left->parent = parent;
+
             }
             else {
-                delete parent->left;
-                cout << "OLD" << parent->right;
+                //cout << "RIGHT OMMITED" << endl;
+                //parent->right->left = parent->right->right = NULL;
+                //delete parent->right; parent->right = NULL;
+                // if (parent != NULL)
+                //   child->parent = parent;
+                // else
+                //   child->parent = NULL;
                 parent->right = child;
-                cout << "; NEW" << parent->right << endl;
+                if (parent->right != NULL)
+                parent->right->parent = parent;
+
             }
 
             rebalance(parent);
