@@ -34,7 +34,7 @@ int main(int argc, char const *argv[]) {
   //CTerm *DTree = new CTerm("mariana gedrova");
   CTermTree<string> DTree;
   CPriorityHeap<string> PTree;
-  CDatabase<string> DB(3);
+  CDatabase<string> DB(460);
 
   //DTree->remove(DTree, "root");
   while ( getline(myfile,k,',') )
@@ -45,9 +45,8 @@ int main(int argc, char const *argv[]) {
       entry->termKey      = k;
       entry->termPriority = ::atof(p.c_str());
 
-      DTree.insert(entry->termKey);
       DB.insert(entry->termKey, entry->termPriority);
-      //DB.display();
+      DB.display();
     }
 
     DB.deleteKey("michal artazov");
