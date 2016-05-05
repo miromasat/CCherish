@@ -8,12 +8,9 @@ class CTermTree {
 public:
     CTermTree       (void);
     ~CTermTree      (void);
-    CTerm<T>* deleteKey2(CTerm<T> *root, T delKey);
 
     bool insert     (T key);
     void deleteKey  (const T key);
-    void deleteKey3 (const T key);
-
     bool search     (const T delKey);
     void printBalance();
     void printInOrder();

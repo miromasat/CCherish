@@ -3,7 +3,7 @@
 
 #include "CPriorityHeap.h"
 #include "CTermTree.h"
-/* CPriorityHeap class describes BinaryHeap structure that holds a vector of nodes - CPriority */
+
 template <class T>
 class CDatabase {
 public:

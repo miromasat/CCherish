@@ -234,23 +234,14 @@ void CTermTree<T>::deleteKey(const T delKey) {
         }
         else {
             if (parent->left == n) {
-                //cout << "LEFT OMMITED" << endl;
-                //parent->left->left = parent->left->right = NULL;
-                //delete parent->left; parent->left = NULL;
-                //child->parent = parent->left;
+
                 parent->left = child;
                 if (parent->left != NULL)
                 parent->left->parent = parent;
 
             }
             else {
-                //cout << "RIGHT OMMITED" << endl;
-                //parent->right->left = parent->right->right = NULL;
-                //delete parent->right; parent->right = NULL;
-                // if (parent != NULL)
-                //   child->parent = parent;
-                // else
-                //   child->parent = NULL;
+
                 parent->right = child;
                 if (parent->right != NULL)
                 parent->right->parent = parent;
