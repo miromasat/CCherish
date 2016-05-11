@@ -49,17 +49,6 @@ int main(int argc, char const *argv[]) {
       DB.display();
     }
 
-    DB.deleteKey("michal artazov");
-    DB.display();
-    DB.deleteKey("filip trefil");
-    DB.display();
-
-
-    DB.search("kaja pikorova");
-    DB.search("radek cehak");
-    DB.search("miroslav hrncir");
-    DB.display();
-
 
   myfile.close();
 
