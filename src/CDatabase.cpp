@@ -16,7 +16,6 @@ CDatabase<T>::~CDatabase<T>(void)
 template <class T>
 bool CDatabase<T>::insert(T key, float priority)
 {
-  cout << "<<<INSERT :k:" << key << ":p:" << priority << ":>>>"<< endl;
   if (index > size)
   {
     T res = PTree.deleteMin();
@@ -32,7 +31,6 @@ bool CDatabase<T>::insert(T key, float priority)
 template <class T>
 T CDatabase<T>::deleteKey(const T key)
 {
-  cout << "<<<DELETE :k:" << key << ":>>>" << endl;
   T res;
   if (index < 1)
     return res;

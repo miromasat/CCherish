@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <ctime>
 #include "./misc/trim.cpp"
 #include "./src/CTerm.cpp"
 #include "./src/CTermTree.cpp"
@@ -34,21 +35,24 @@ int main(int argc, char const *argv[]) {
   //CTerm *DTree = new CTerm("mariana gedrova");
   CTermTree<string> DTree;
   CPriorityHeap<string> PTree;
-  CDatabase<string> DB(460);
+  int y = 5000;
+  CDatabase<string> DB(y);
 
-  //DTree->remove(DTree, "root");
-  while ( getline(myfile,k,',') )
+  clock_t begin = clock();
+  while ( getline(myfile,k,',') && y>0 )
     {     getline (myfile,p);
           trim(k); trim(p);
           transform(k.begin(), k.end(), k.begin(), ::tolower);
-
+      y--;
       entry->termKey      = k;
       entry->termPriority = ::atof(p.c_str());
 
       DB.insert(entry->termKey, entry->termPriority);
-      DB.display();
+      //DB.display();
     }
-
+  clock_t end = clock();
+  double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+  std::cout << "Time: " << elapsed_secs << std::endl;
 
   myfile.close();
 
