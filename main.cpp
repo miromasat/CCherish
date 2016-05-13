@@ -3,6 +3,7 @@
 #include <string>
 #include <algorithm>
 #include <ctime>
+#include <stdlib.h>
 #include "./misc/trim.cpp"
 #include "./src/CTerm.cpp"
 #include "./src/CTermTree.cpp"
@@ -12,44 +13,55 @@
 
 using namespace std;
 
-struct termRecord
+template <class T>
+class termRecord
 {
-  string    termKey;
-  float     termPriority;
+  public:
+    termRecord(T TK, float TP) : termKey(TK), termPriority(TP) {}
+    T getTerm()     {return termKey;}
+    float getPriority() {return termPriority;}
+
+  private:
+      T    termKey;
+      float     termPriority;
 };
-
-termRecord*  parseRecord(termRecord* rec, string entry)
-{
-  transform(entry.begin(), entry.end(), entry.begin(), ::tolower);
-  trim(entry);
-
-  return rec;
-}
 
 int main(int argc, char const *argv[]) {
 
   string  k, p;
-  termRecord *entry = new termRecord;
+  string s;
+
   ifstream myfile (argv[1]);
 
   //CTerm *DTree = new CTerm("mariana gedrova");
-  CTermTree<string> DTree;
-  CPriorityHeap<string> PTree;
-  int y = 5000;
-  CDatabase<string> DB(y);
+
+  int y = 25000;
+  CDatabase<int> DB(y);
+  vector<termRecord<int> > input;
+
+  while (getline(cin, s))
+    {
+      char a;
+      if (--y < 0) break;
+
+      string delimiter = ",";
+      k = s.substr(0, s.find(delimiter));
+      s.erase(0, s.find(delimiter) + delimiter.length());
+      p = s.substr(0, s.find(delimiter));
+
+      string::size_type sz;   // alias of size_t
+      int k1 = std::stoi (k,&sz);
+      int p1 = std::stoi (p,&sz);
+
+      input.push_back(termRecord<int>(k1, p1));
+
+    }
 
   clock_t begin = clock();
-  while ( getline(myfile,k,',') && y>0 )
-    {     getline (myfile,p);
-          trim(k); trim(p);
-          transform(k.begin(), k.end(), k.begin(), ::tolower);
-      y--;
-      entry->termKey      = k;
-      entry->termPriority = ::atof(p.c_str());
-
-      DB.insert(entry->termKey, entry->termPriority);
-      //DB.display();
+    for (unsigned i = 0; i < input.size(); i++) {
+      DB.insert(input[i].getTerm(), input[i].getPriority());
     }
+
   clock_t end = clock();
   double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
   std::cout << "Time: " << elapsed_secs << std::endl;
