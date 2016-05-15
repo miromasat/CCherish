@@ -16,7 +16,7 @@ CDatabase<T>::~CDatabase<T>(void)
 template <class T>
 bool CDatabase<T>::insert(T key, float priority)
 {
-  if (index > size)
+  if (index > size - 1)
   {
     T res = PTree.deleteMin();
     DTree.deleteKey(res);
