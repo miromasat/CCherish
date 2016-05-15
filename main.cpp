@@ -24,6 +24,16 @@ class termRecord
       T    termKey;
       float     termPriority;
 };
+// options to run the main are
+// -v (verbose) will print contents of the database or operation after every run of it
+// -t (test) will run series of insertions and searches for every key in the database, while using this mode, please send in some of test files using standard input (< data/sample01.txt)
+// -string (-int) will prepare the database for working with strings (integers) as keys in the database
+// -cap (capacity) does set up the maximal capacity of the database system, default capacity is 25000
+// minimal mode of run is with -string (-int) only, which introduces the INTERACTIVE MODE
+// INTERACTIVE mode supports these operations:
+//      - inserting a key with a given priority e.g. "insert:Miroslav Masat:99"
+//      - searching a key e.g. "search:Miroslav Masat"
+//      - displaying the content of the database e.g. display
 
 int main(int argc, char const *argv[]) {
   bool verbose, test, isString, isInt;
@@ -164,8 +174,10 @@ if (test)
                 cout << "FOUND";
               cout << "SEARCH>>>>>>>>>>>>>" << endl;
             }
+          }else if (OP == "display"){
+            DB_string.display();
           }else{
-            cout << "Unknown operator, supported are insert:key:priority and search:priority, try again." << endl;
+            cout << "Unknown operator, supported are insert:key:priority, search:priority or display, try again." << endl;
           }
         }else{ //INTERACTIVE MODE FOR INTEGERS
           OP = s.substr(0, s.find(delimiter));
@@ -193,8 +205,10 @@ if (test)
                 cout << "FOUND ";
               cout << "SEARCH>>>>>>>>>>>>>" << endl;
             }
+          }else if (OP == "display"){
+            DB_int.display();
           }else{
-            cout << "Unknown operator, supported are insert:key:priority and search:priority, try again." << endl;
+            cout << "Unknown operator, supported are insert:key:priority, search:priority or display, try again." << endl;
           }
         }
 
