@@ -58,11 +58,12 @@ void CDatabase<T>::display()
 template <class T>
 T CDatabase<T>::search(const T key)
 {
+  T ret = T();
   bool s = DTree.search(key);
 
   if (!s)
   {
-    insert(key, 1);
+    return ret;
   }
 
   return key;

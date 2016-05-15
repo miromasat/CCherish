@@ -1,6 +1,5 @@
 #ifndef __CTerm_h__
 #define __CTerm_h__
-/* AVL node */
 template <class T>
 class CTerm {
 public:

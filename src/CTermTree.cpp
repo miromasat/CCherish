@@ -34,7 +34,6 @@ void CTermTree<T>::rebalance(CTerm<T> *n) {
 
 template <class T>
 CTerm<T>* CTermTree<T>::rotateLeft(CTerm<T> *a) {
-    //cout << "ROTATE LEFT" << endl;
     CTerm<T> *b = a->right;
     b->parent = a->parent;
     a->right = b->left;
@@ -61,7 +60,6 @@ CTerm<T>* CTermTree<T>::rotateLeft(CTerm<T> *a) {
 
 template <class T>
 CTerm<T>* CTermTree<T>::rotateRight(CTerm<T> *a) {
-    //cout << "ROTATE RIGHT" << endl;
     CTerm<T> *b = a->left;
     b->parent = a->parent;
     a->left = b->right;
@@ -139,10 +137,7 @@ void CTermTree<T>::renderInOrder(CTerm<T> *n, int level) {
 
     if (n != NULL) {
         renderInOrder(n->right, level+1);
-      // for (int i = 0; i < level; i++)
-      //   cout<<"---";
         cout << endl;
-        //cout << endl;
       for (int i = 0; i < level; i++)
         if (level > 1) cout<<"        ";
         cout << "->" << n->key;
@@ -224,9 +219,8 @@ void CTermTree<T>::deleteKey(const T delKey) {
 
     if (delNode != NULL) {
         delNode->key = n->key;
-
         child = n->left != NULL ? n->left : n->right;
-        //cout << "CHILD = " << child->key << endl;
+
         if (root->key == delKey) {
             root->left = root->right = NULL; delete root; root = NULL;
             root = child;
