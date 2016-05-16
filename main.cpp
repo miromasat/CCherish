@@ -121,7 +121,7 @@ if (test)
             cout << ">>>>>>>>>>>>>SEARCH" << endl;
             cout << "key: " << input_string[i].getTerm() << endl;
             if (f == "") cout << "NOT ";
-              cout << "FOUND";
+              cout << "FOUND ";
             cout << "SEARCH>>>>>>>>>>>>>" << endl;
           }
         }else{
@@ -171,7 +171,7 @@ if (test)
               cout << ">>>>>>>>>>>>>SEARCH" << endl;
               cout << "key: " << keyS << endl;
               if (f == "") cout << "NOT ";
-                cout << "FOUND";
+                cout << "FOUND ";
               cout << "SEARCH>>>>>>>>>>>>>" << endl;
             }
           }else if (OP == "display"){
@@ -201,8 +201,8 @@ if (test)
             {
               cout << ">>>>>>>>>>>>>SEARCH" << endl;
               cout << "key: " << keyI << endl;
-              if (f == 0) cout << "NOT ";
-                cout << "FOUND ";
+              if (f == 0) cout << " NOT";
+                cout << " FOUND ";
               cout << "SEARCH>>>>>>>>>>>>>" << endl;
             }
           }else if (OP == "display"){
